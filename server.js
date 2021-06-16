@@ -1,7 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const apiRouter = require("./routes/api");
-const viewRouter = require("./routes/view");
 
 PORT = 3000;
 const app = express();
@@ -16,8 +14,8 @@ mongoose.connect("mongodb://localhost/workout", {
   useFindAndModify: false,
 });
 
-app.use(require(apiRouter));
-app.use(require(viewRouter));
+app.use(require("./routes/api"));
+app.use(require("./routes/view"));
 
 app.listen(PORT, () => {
   console.log(`listening on port
